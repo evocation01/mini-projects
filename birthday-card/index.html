@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #0A0A0A;
+            color: #E0E0E0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, #4CAF50 1px, transparent 1px);
+            background-size: 25px 25px;
+            opacity: 0.1;
+            animation: pulse 10s infinite;
+            pointer-events: none;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.1; }
+        }
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+        .glitch {
+            animation: glitch 2s infinite;
+        }
+        @keyframes glitch {
+            0% { text-shadow: none; }
+            10% { text-shadow: 2px 2px 0 #FF00FF, -2px -2px 0 #00FFFF; }
+            20% { text-shadow: none; }
+            30% { text-shadow: 2px 2px 0 #FF00FF, -2px -2px 0 #00FFFF; }
+            40% { text-shadow: none; }
+            50% { text-shadow: 2px 2px 0 #FF00FF, -2px -2px 0 #00FFFF; }
+            60% { text-shadow: none; }
+            100% { text-shadow: none; }
+        }
+        .hidden-message {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .visible-message {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-[#E0E0E0] overflow-hidden">
+    <div class="matrix-bg"></div>
+    <div class="container p-8 max-w-lg mx-auto bg-[#1A1A1A] rounded-lg shadow-xl border border-gray-700">
+        <h1 class="text-4xl md:text-5xl font-bold mb-2 text-[#4CAF50] glitch">
+            <span class="text-white">&lt;</span>Happy Birthday<span class="text-white">/&gt;</span>
+        </h1>
+        <p class="text-lg text-gray-400 mb-6">
+            ハッピーバースデー、おじさん!
+        </p>
+
+        <p id="countdown" class="text-2xl text-gray-400 mb-6"></p>
+
+        <div class="mt-8 mb-6 p-4 rounded-md border border-gray-600 bg-[#252525]">
+            <p class="text-left text-lg leading-relaxed">
+                <span class="text-[#FFC107]">const</span> <span class="text-red-400">message</span> <span class="text-[#E0E0E0]">=</span> <span class="text-green-400">`A new year is starting, so this is a new beginning. May you have a year filled with new adventures, opportunities, and successes. Have a wonderful day!`</span><span class="text-white">;</span><br>
+                <span class="text-[#FFC107]">const</span> <span class="text-red-400">recipient</span> <span class="text-[#E0E0E0]">=</span> <span class="text-green-400">`Ragıp`</span><span class="text-white">;</span><br>
+                <span class="text-[#FFC107]">const</span> <span class="text-red-400">sender</span> <span class="text-[#E0E0E0]">=</span> <span class="text-green-400">`Hakan`</span><span class="text-white">;</span>
+            </p>
+        </div>
+
+        <button id="surpriseButton" class="mt-4 px-6 py-3 bg-[#007BFF] text-white font-bold rounded-lg shadow-lg hover:bg-[#0056b3] transition-colors duration-300 transform hover:scale-105 active:scale-95">
+            // Click here for a surprise!
+        </button>
+
+        <div id="hiddenMessage" class="hidden-message mt-6 text-xl text-[#FFC107] font-bold">
+            <p>素晴らしい１年になりますように! 🎉🎂🎊</p>
+        </div>
+
+        <p class="mt-6 text-sm text-gray-500">
+            <span class="text-white">&lt;!-- </span>Made with love by <span class="text-[#FFC107]">`&lt;`</span><span class="text-green-400">sender</span><span class="text-[#FFC107]">`&gt;`</span> <span class="text-white">--&gt;</span>
+        </p>
+    </div>
+
+    <script>
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        function playTone() {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            oscillator.type = 'sine';
+            oscillator.frequency.value = 440;
+            gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        document.getElementById('surpriseButton').addEventListener('click', () => {
+            audioContext.resume();
+            
+            playTone();
+            
+            const messageEl = document.getElementById('hiddenMessage');
+            messageEl.classList.add('visible-message');
+            messageEl.classList.remove('hidden-message');
+
+            confetti({
+                particleCount: 150,
+                spread: 90,
+                origin: { y: 0.6 },
+                colors: ['#007BFF', '#FF00FF', '#00FFFF']
+            });
+        });
+
+        const countdownElement = document.getElementById('countdown');
+        let countdownValue = 0;
+
+        function updateBinaryCountdown() {
+            countdownValue++;
+            const binaryString = countdownValue.toString(2).padStart(8, '0');
+            countdownElement.textContent = `0b${binaryString}`;
+        }
+
+        setInterval(updateBinaryCountdown, 1000);
+        updateBinaryCountdown();
+    </script>
+</body>
+</html>
