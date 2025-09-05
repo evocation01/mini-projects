@@ -1,6 +1,6 @@
 # Tetris Game
 
-This is a simple Tetris game built with HTML, CSS, and JavaScript.
+This is a simple Tetris game built with HTML, CSS, and JavaScript, made for iMIS class assignment.
 
 ## Features:
 
@@ -17,3 +17,7 @@ This is a simple Tetris game built with HTML, CSS, and JavaScript.
 ## Installation:
 
 Download the files and open `index.html` in your browser.
+
+### Credits
+
+Credits and thanks to jakesgordon's javascript-tetris repo, code was taken as a blueprint and updated from that.
