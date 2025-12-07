@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta tags -->
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book a Table - Little Lemon</title>
+    <meta name="description" content="Book a table at Little Lemon Restaurant for an unforgettable dining experience.">
+    <meta name="author" content="Little Lemon Restaurant">
+
+    <!-- Common styles for base layout, header, nav, footer -->
+    <link rel="stylesheet" href="../css/styles-common.css">
+    <!-- Specific styles for about, menu, book page content -->
+    <link rel="stylesheet" href="../css/styles-other.css">
+
+    <!-- other links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@450&display=swap" />
+
+</head>
+
+<body>
+    <header>
+        <img src="../img/logo.png" alt = "Main Logo" class="logo">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="book.html">Book</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="page-header">
+            <h1>Book Your Table</h1>
+            <p>Reserve your spot for an amazing culinary experience at Little Lemon.</p>
+        </section>
+
+        <section class="booking-section">
+            <form class="booking-form">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time:</label>
+                    <select id="time" name="time" required>
+                        <option value="">Select Time</option>
+                        <option value="17:00">05:00 PM</option>
+                        <option value="17:30">05:30 PM</option>
+                        <option value="18:00">06:00 PM</option>
+                        <option value="18:30">06:30 PM</option>
+                        <option value="19:00">07:00 PM</option>
+                        <option value="19:30">07:30 PM</option>
+                        <option value="20:00">08:00 PM</option>
+                        <option value="20:30">08:30 PM</option>
+                        <option value="21:00">09:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests:</label>
+                    <input type="number" id="guests" name="guests" min="1" max="10" value="2" required>
+                </div>
+                <div class="form-group full-width">
+                    <label for="requests">Special Requests (allergies, seating preferences, etc.):</label>
+                    <textarea id="requests" name="requests" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Confirm Reservation</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <img src="../img/icon.png" alt = "icon" class="icon">
+        </div>
+        <div>
+            <p>Copyright Little Lemon</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+/* This CSS file contains common styling for base elements, header, navigation, main layout, and footer, shared across all pages. */
+
+/* Base Styles */
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+}
+
+/* Header & Logo */
+header {
+    background-color: #fefefe;
+    padding: 1.25rem 0;
+    text-align: center;
+    border-bottom: 0.0625rem solid #eee;
+}
+
+.logo {
+    max-width: 12.5rem; /* 200px */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Navigation */
+nav {
+    background-color: #333;
+    padding: 0.625rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 0.9375rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.125rem;
+    padding: 0.625rem 0.9375rem;
+    display: block;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    color: #f4ce14;
+    background-color: #555;
+    border-radius: 0.3125rem;
+}
+
+/* Main Content Area - General Layout */
+main {
+    max-width: 75rem; /* 1200px */
+    margin: 1.875rem auto;
+    padding: 0 1.25rem;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1.875rem 1.25rem;
+    margin-top: 3.125rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+footer .icon {
+    max-width: 3.125rem;
+    height: auto;
+    display: block;
+}
+
+footer p {
+    font-size: 0.875rem;
+    margin: 0;
+    text-align: right;
+}
+
+/* --- Common Responsive Adjustments --- */
+
+@media (max-width: 56.25rem) { /* 900px breakpoint */
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav li {
+        margin: 0.3125rem 0;
+    }
+}
+
+@media (max-width: 37.5rem) { /* 600px breakpoint */
+    main {
+        padding: 0 0.625rem;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.25rem 0.625rem;
+    }
+
+    footer p {
+        text-align: center;
+        margin-top: 0.625rem;
+    }
+}
