@@ -133,3 +133,11 @@ Thumbs.db
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Datasets
+.fashion/
+03_ml/01_assignments/02_capstone-ai-dl/images_dataSAT
+
+# Models
+*.pth
+*.keras
